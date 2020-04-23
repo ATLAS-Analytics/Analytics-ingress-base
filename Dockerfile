@@ -70,11 +70,9 @@ RUN yum install -y pig \
 # RUN wget http://central.maven.org/maven2/com/twitter/elephantbird/elephant-bird-pig/$EB_VERSION/elephant-bird-pig-$EB_VERSION.jar -O /usr/lib/pig/lib/elephant-bird-pig.jar
 
 # mysql 
-RUN wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.45.tar.gz
-RUN mkdir -p /usr/local/mysql
-RUN tar -xvf mysql-connector-java-5.1.45.tar.gz --directory /usr/local/mysql --strip-components=1 && \
-    rm mysql-connector-java-5.1.45.tar.gz
-RUN cp /usr/local/mysql/mysql-connector-java-5.1.45-bin.jar /usr/local/sqoop
+RUN mkdir -p /usr/local/mysql && \
+    wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.13/mysql-connector-java-8.0.13.jar -O /usr/local/mysql/mysql-connector-java-8.0.13.jar
+# RUN cp /usr/local/mysql/mysql-connector-java-5.1.45-bin.jar /usr/local/sqoop
 
 ENV HADOOP_MAPRED_HOME /usr/lib/hadoop-mapreduce
 ENV HADOOP_COMMON_HOME /usr/lib/hadoop
@@ -121,4 +119,4 @@ RUN useradd -ms /bin/bash analyticssvc
 USER analyticssvc
 WORKDIR /home/analyticssvc
 
-CMD ["sleep 99999999"]
+CMD ["sleep", "99999999"]
