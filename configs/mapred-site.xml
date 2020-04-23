@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- This file is managed by puppet. Changes may be lost next puppet run. -->
+
+<configuration>
+
+  <property>
+    <name>mapred.job.tracker</name>
+    <value>p01001532965510.cern.ch:9001</value>
+  </property>
+
+    
+	<property>
+	    <name>mapreduce.framework.name</name>
+	    <value>yarn</value>
+	</property>
+
+	<property>
+	    <name>mapreduce.map.speculative</name>
+	    <value>false</value>
+	</property>
+
+	<property>
+	    <name>mapreduce.reduce.speculative</name>
+	    <value>false</value>
+	</property>
+
+      <property>
+	<name>mapreduce.job.reduce.slowstart.completedmaps</name>
+	<!-- default: ? -->
+	<value>1.0</value>	<!-- force all maps to complete before starting reducers -->
+      </property>
+
+      <property>
+	<name>mapreduce.jobtracker.persist.jobstatus.hours</name>
+	<!-- default: 24 -->
+	<value>72</value>
+      </property>
+
+	<property>
+	    <name>mapreduce.client.submit.file.replication</name>
+	    <value>3</value>
+	    <!-- should be square root of number of hosts in the cluster -->
+	</property>
+
+	<property>
+	    <name>mapreduce.jobhistory.address</name>
+	    <value>ithdp1101.cern.ch:10020</value>
+	</property>
+
+	<property>
+	    <name>mapreduce.jobhistory.webapp.address</name>
+	    <value>ithdp1101.cern.ch:19888</value>
+	</property>
+
+	<property>
+	    <name>yarn.app.mapreduce.am.staging-dir</name>
+	    <value>/var/history</value>
+	</property>
+
+	
+	    <!-- MapReduce Job History Server security configs -->
+	    <property>
+	      <name>mapreduce.jobhistory.keytab</name>
+	      <value>/etc/hadoop/conf/mapred.keytab</value>	<!-- path to the MAPRED keytab for the Job History Server -->
+	    </property>
+	    <property>
+	      <name>mapreduce.jobhistory.principal</name>
+	      <value>mapred/ithdp1101.cern.ch@CERN.CH</value>
+	    </property>
+	    <!-- of Kerberos-specific configuration -->
+	
+
+	<property>
+	    <name>mapreduce.map.memory.mb</name>
+	    <value>2048</value>
+	</property>
+
+	<property>
+	    <name>mapreduce.map.java.opts</name>
+	    <value>-Xmx1920m</value>
+	</property>
+
+	<property>
+	    <name>mapreduce.reduce.memory.mb</name>
+	    <value>2560</value>
+	</property>
+
+	<property>
+	    <name>mapreduce.reduce.java.opts</name>
+	    <value>-Xmx2304m</value>
+	</property>
+
+        <!-- end of yarn-specific configuration -->
+    
+
+  <property>
+    <name>mapred.local.dir</name>
+    <value>/data1/hadoop/mapred/local,/data10/hadoop/mapred/local,/data11/hadoop/mapred/local,/data12/hadoop/mapred/local,/data13/hadoop/mapred/local,/data14/hadoop/mapred/local,/data15/hadoop/mapred/local,/data16/hadoop/mapred/local,/data17/hadoop/mapred/local,/data18/hadoop/mapred/local,/data19/hadoop/mapred/local,/data2/hadoop/mapred/local,/data20/hadoop/mapred/local,/data21/hadoop/mapred/local,/data22/hadoop/mapred/local,/data23/hadoop/mapred/local,/data24/hadoop/mapred/local,/data25/hadoop/mapred/local,/data26/hadoop/mapred/local,/data27/hadoop/mapred/local,/data28/hadoop/mapred/local,/data29/hadoop/mapred/local,/data3/hadoop/mapred/local,/data30/hadoop/mapred/local,/data31/hadoop/mapred/local,/data32/hadoop/mapred/local,/data33/hadoop/mapred/local,/data34/hadoop/mapred/local,/data35/hadoop/mapred/local,/data36/hadoop/mapred/local,/data37/hadoop/mapred/local,/data38/hadoop/mapred/local,/data39/hadoop/mapred/local,/data4/hadoop/mapred/local,/data40/hadoop/mapred/local,/data41/hadoop/mapred/local,/data42/hadoop/mapred/local,/data43/hadoop/mapred/local,/data44/hadoop/mapred/local,/data45/hadoop/mapred/local,/data46/hadoop/mapred/local,/data47/hadoop/mapred/local,/data48/hadoop/mapred/local,/data5/hadoop/mapred/local,/data6/hadoop/mapred/local,/data7/hadoop/mapred/local,/data8/hadoop/mapred/local,/data9/hadoop/mapred/local,/local1/hadoop/mapred/local,/local2/hadoop/mapred/local,/local3/hadoop/mapred/local</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>mapred.hosts</name>
+    <value>/etc/hadoop/conf/mapred.includes</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>mapred.hosts.exclude</name>
+    <value>/etc/hadoop/conf/excludes</value>
+    <final>true</final>
+  </property>
+
+
+
+<!-- This is for hadoop to use fairscheduler -->
+
+  <property>
+    <name>mapred.fairscheduler.preemption</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>mapred.fairscheduler.preemption.only.log</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>mapred.jobtracker.taskScheduler</name>
+    <value>org.apache.hadoop.mapred.FairScheduler</value>
+  </property>
+
+  <property>
+    <name>mapred.fairscheduler.allocation.file</name>
+    <value>/etc/hadoop/conf/fair-scheduler.xml</value>
+  </property>
+
+  <property>
+    <name>mapred.fairscheduler.poolnameproperty</name>
+    <!-- default: user.name -->
+    <!-- mapred.job.queue.name -->
+    <value>user.name</value>
+  </property>
+
+  <property>
+    <name> mapred.jobtracker.retirejob.interval </name>
+    <!-- default: 24*60*60*1000 -->
+    <!-- 259200000000 = 3 days -->
+    <value>259200000000</value>
+  </property>
+
+  <property>
+    <name>mapreduce.jobtracker.staging.root.dir</name>
+    <value>/user</value>
+  </property>
+
+  <property>
+    <name>mapred.jobtracker.restart.recover</name>
+    <value>true</value>
+  </property>
+
+
+  <property>
+    <name>mapred.tasktracker.map.tasks.maximum</name>
+    <value>500</value>
+  </property>
+
+  <property>
+    <name>mapred.tasktracker.reduce.tasks.maximum</name>
+    <value>200</value>
+  </property>
+
+  <property>
+    <name>mapred.queue.names</name>
+    <value>default,big,uno</value>
+  </property>
+
+  <property>
+    <name>mapred.map.max.attempts</name>
+    <!-- default: 4 -->
+    <value>4</value>
+  </property>
+
+  <property>
+    <name>mapreduce.map.maxattempts</name>
+    <!-- default: 4 -->
+    <value>4</value>
+  </property>
+
+  <property>
+    <name>mapreduce.reduce.maxattempts</name>
+    <!-- default: 4 -->
+    <value>4</value>
+  </property>
+
+  <property>
+    <name>mapreduce.am.max-attempts</name>
+    <!-- default: 2 -->
+    <value>8</value>
+  </property>
+
+  <property>
+    <name>mapred.job.tracker.persist.jobstatus.hours</name>
+    <!-- deprecated, default: 24 -->
+    <value>72</value>
+  </property>
+
+  <property>
+    <name>mapred.reduce.slowstart.completed.maps</name>
+    <!-- default: ? -->
+    <value>0.999</value>	<!-- force most maps to complete before starting reducers -->
+  </property>
+
+  <property>
+    <name>mapred.fairscheduler.locality.delay</name>
+    <!-- default: ? -->
+    <value>60000</value>	<!-- delay for non-local map tasks in ms -->
+  </property>
+
+  <property>
+    <name>mapred.fairscheduler.sizebasedweight</name>
+    <!-- default: false -->
+    <value>true</value>		<!-- bigger jobs higher weight -->
+  </property>
+
+<!-- JobTracker security configs -->
+<property>
+  <name>mapreduce.jobtracker.kerberos.principal</name>
+  <value>mapred/p01001532965510.cern.ch@CERN.CH</value>
+</property>
+<property>
+  <name>mapreduce.jobtracker.keytab.file</name>
+  <value>/etc/hadoop/conf/mapred.keytab</value> <!-- path to the MapReduce keytab -->
+</property>
+
+<!-- TaskTracker security configs -->
+<property>
+  <name>mapreduce.tasktracker.kerberos.principal</name>
+  <value>mapred/_HOST@CERN.CH</value>
+</property>
+<property>
+  <name>mapreduce.tasktracker.keytab.file</name>
+  <value>/etc/hadoop/conf/mapred.keytab</value> <!-- path to the MapReduce keytab -->
+</property>
+
+<!-- TaskController settings -->
+<property>
+  <name>mapred.task.tracker.task-controller</name>
+  <value>org.apache.hadoop.mapred.LinuxTaskController</value>
+</property>
+<property>
+  <name>mapreduce.tasktracker.group</name>
+  <value>mapred</value>
+</property>
+
+
+</configuration>

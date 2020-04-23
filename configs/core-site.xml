@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!-- 
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+
+	<name>hadoop.security.auth_to_local</name>
+    	<value>
+	    RULE:[1:$1](.*@CERN.CH)s/@CERN.CH//
+	    RULE:[2:$1/$2@$0](.*/ithdp1101.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/itrac51111.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113126469.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113130191.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113142551.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113229047.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113248710.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113253107.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113289750.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113416949.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113446110.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113452631.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113454475.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113459597.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113469665.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113550320.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113568970.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113588139.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113589617.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113628212.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113731852.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113794678.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113923850.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05151113997207.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074033994.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074063755.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074211655.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074630765.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074925396.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074933479.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074949355.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074955062.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p05153074971531.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p06636710a41523.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p06636710d25480.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p06636710e58846.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p06636710h82992.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/p06636710x90115.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/ithdp1102.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/ithdp1103.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/ithdp1104.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:$1/$2@$0](.*/ithdp1105.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+RULE:[2:$1/$2@$0](^hue/hue-analytix.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+RULE:[2:$1/$2@$0](^hue-notebook/hue-analytix.cern.ch@CERN.CH)s/^([a-zA-Z]*).*/$1/
+	    RULE:[2:nobody]
+	    DEFAULT
+	</value>
+    </property>
+    <property>
+	<name>net.topology.node.switch.mapping.impl</name>
+	<value>org.apache.hadoop.net.TableMapping</value>
+    </property>
+    <property>
+	<name>net.topology.table.file.name</name>
+	<value>/etc/hadoop/conf/topology.table.file</value>
+    </property>
+    <property>
+	<name>fs.defaultFS</name>
+	<value>hdfs://analytix/</value>
+    </property>
+    <property>
+      <name>hadoop.security.authentication</name>
+      <value>kerberos</value>
+      <!-- kerberos or simple, A value of "simple" would disable security. -->
+    </property>
+
+    <property>
+      <name>hadoop.security.authorization</name>
+      <value>true</value>  <!-- true or false -->
+    </property>
+
+    
+    <property>
+      <name>fs.trash.interval</name>
+      <value>10080</value>  <!-- in minutes  -->
+    </property>
+    
+    <property>
+      <name>fs.trash.checkpoint.interval</name>
+      <value>720</value>
+    </property>
+
+
+    
+	<property>
+	  <!-- Allows the mapreduser to move files belonging on these hosts -->
+	  <name>hadoop.proxyuser.mapred.hosts</name>
+	  <value>*</value>
+	</property>
+	
+	<property>
+	  <!-- Allows the mapreduser to move files belonging to users in these groups -->
+	  <name>hadoop.proxyuser.mapred.groups</name>
+	  <value>*</value>
+	</property>
+
+	<!-- SPNEGO auth 'true' -->
+	
+	    <property>
+		<name>hadoop.http.filter.initializers</name>
+		<value>org.apache.hadoop.security.AuthenticationFilterInitializer</value>
+	    </property>
+	
+
+	<property>
+	    <name>hadoop.http.authentication.type</name>
+	    <value>simple</value>
+	    <!-- kerberos or simple -->
+	</property>
+
+
+	<property>
+	    <name>hadoop.http.authentication.signature.secret.file</name>
+	    <value>/etc/hadoop/conf/hadoop-http-auth-signature-secret</value>
+	</property>
+
+	<property>
+	    <name>hadoop.http.authentication.token.validity</name>
+	    <value>89800</value>
+	</property>
+
+	<property>
+	    <name>hadoop.http.authentication.cookie.domain</name>
+	    <value>cern.ch</value>
+	</property>
+
+	<property>
+	    <name>hadoop.http.authentication.kerberos.principal</name>
+	    <value>HTTP/_HOST@CERN.CH</value>
+	</property>
+
+	<property>
+	    <name>hadoop.http.authentication.kerberos.keytab</name>
+	    <value>/etc/hadoop/conf/HTTP.keytab</value>
+	</property>
+    
+    	<property>
+	    <name>ha.zookeeper.quorum</name>
+	    <value>ithdp1101.cern.ch:2181,itrac51111.cern.ch:2181,p05151113588139.cern.ch:2181</value>
+	</property>
+    
+    <property>
+      <name>ipc.client.connect.max.retries.on.timeouts</name>
+      <value>3</value>
+    </property>
+
+    <property>
+      <name>ipc.client.connect.timeout</name>
+      <value>5000</value>
+    </property>
+
+
+    <property>
+      <name>hadoop.proxyuser.hive.hosts</name>
+      <value>*</value>
+    </property>
+
+    <property>
+      <name>hadoop.proxyuser.hive.groups</name>
+      <value>*</value>
+    </property>
+
+    <property>
+      <name>hadoop.proxyuser.hue.hosts</name>
+      <value>*</value>
+    </property>
+
+    <property>
+      <name>hadoop.proxyuser.hue.groups</name>
+      <value>*</value>
+    </property>
+
+    <property>
+	<!-- found in a Cloudera blog: "sweet spot in 2009". default = 4k, bigger -> fewer RPCs  -->
+	<name>io.file.buffer.size</name>
+	<value>65536</value>
+    </property>
+
+
+
+
+</configuration>

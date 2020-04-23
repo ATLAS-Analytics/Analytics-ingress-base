@@ -1,0 +1,479 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- This file is managed by puppet. Changes may be lost next puppet run. -->
+
+<configuration>
+
+    <property>
+	<name>fs.defaultFS</name>
+        <value>hdfs://analytix/</value>
+    </property>
+ 
+    <property>
+	<name>dfs.namenode.support.allow.format</name>
+        <value>false</value>
+    </property>
+ 
+    <property>
+	<name>ipc.maximum.data.length</name>
+        <value>134217728</value>
+    </property>
+
+    <property>
+	<name>dfs.data.dir</name>
+	<value>FILE:/data1/hadoop/hdfs/data,FILE:/data10/hadoop/hdfs/data,FILE:/data11/hadoop/hdfs/data,FILE:/data12/hadoop/hdfs/data,FILE:/data13/hadoop/hdfs/data,FILE:/data14/hadoop/hdfs/data,FILE:/data15/hadoop/hdfs/data,FILE:/data16/hadoop/hdfs/data,FILE:/data17/hadoop/hdfs/data,FILE:/data18/hadoop/hdfs/data,FILE:/data19/hadoop/hdfs/data,FILE:/data2/hadoop/hdfs/data,FILE:/data20/hadoop/hdfs/data,FILE:/data21/hadoop/hdfs/data,FILE:/data22/hadoop/hdfs/data,FILE:/data23/hadoop/hdfs/data,FILE:/data24/hadoop/hdfs/data,FILE:/data25/hadoop/hdfs/data,FILE:/data26/hadoop/hdfs/data,FILE:/data27/hadoop/hdfs/data,FILE:/data28/hadoop/hdfs/data,FILE:/data29/hadoop/hdfs/data,FILE:/data3/hadoop/hdfs/data,FILE:/data30/hadoop/hdfs/data,FILE:/data31/hadoop/hdfs/data,FILE:/data32/hadoop/hdfs/data,FILE:/data33/hadoop/hdfs/data,FILE:/data34/hadoop/hdfs/data,FILE:/data35/hadoop/hdfs/data,FILE:/data36/hadoop/hdfs/data,FILE:/data37/hadoop/hdfs/data,FILE:/data38/hadoop/hdfs/data,FILE:/data39/hadoop/hdfs/data,FILE:/data4/hadoop/hdfs/data,FILE:/data40/hadoop/hdfs/data,FILE:/data41/hadoop/hdfs/data,FILE:/data42/hadoop/hdfs/data,FILE:/data43/hadoop/hdfs/data,FILE:/data44/hadoop/hdfs/data,FILE:/data45/hadoop/hdfs/data,FILE:/data46/hadoop/hdfs/data,FILE:/data47/hadoop/hdfs/data,FILE:/data48/hadoop/hdfs/data,FILE:/data5/hadoop/hdfs/data,FILE:/data6/hadoop/hdfs/data,FILE:/data7/hadoop/hdfs/data,FILE:/data8/hadoop/hdfs/data,FILE:/data9/hadoop/hdfs/data,FILE:/local1/hadoop/hdfs/data,FILE:/local2/hadoop/hdfs/data,FILE:/local3/hadoop/hdfs/data</value>
+    </property>
+
+    <property>
+	<name>dfs.name.dir</name>
+	<value>/data1/hadoop/hdfs/name,/data10/hadoop/hdfs/name,/data11/hadoop/hdfs/name,/data12/hadoop/hdfs/name,/data13/hadoop/hdfs/name,/data14/hadoop/hdfs/name,/data15/hadoop/hdfs/name,/data16/hadoop/hdfs/name,/data17/hadoop/hdfs/name,/data18/hadoop/hdfs/name,/data19/hadoop/hdfs/name,/data2/hadoop/hdfs/name,/data20/hadoop/hdfs/name,/data21/hadoop/hdfs/name,/data22/hadoop/hdfs/name,/data23/hadoop/hdfs/name,/data24/hadoop/hdfs/name,/data25/hadoop/hdfs/name,/data26/hadoop/hdfs/name,/data27/hadoop/hdfs/name,/data28/hadoop/hdfs/name,/data29/hadoop/hdfs/name,/data3/hadoop/hdfs/name,/data30/hadoop/hdfs/name,/data31/hadoop/hdfs/name,/data32/hadoop/hdfs/name,/data33/hadoop/hdfs/name,/data34/hadoop/hdfs/name,/data35/hadoop/hdfs/name,/data36/hadoop/hdfs/name,/data37/hadoop/hdfs/name,/data38/hadoop/hdfs/name,/data39/hadoop/hdfs/name,/data4/hadoop/hdfs/name,/data40/hadoop/hdfs/name,/data41/hadoop/hdfs/name,/data42/hadoop/hdfs/name,/data43/hadoop/hdfs/name,/data44/hadoop/hdfs/name,/data45/hadoop/hdfs/name,/data46/hadoop/hdfs/name,/data47/hadoop/hdfs/name,/data48/hadoop/hdfs/name,/data5/hadoop/hdfs/name,/data6/hadoop/hdfs/name,/data7/hadoop/hdfs/name,/data8/hadoop/hdfs/name,/data9/hadoop/hdfs/name,/local1/hadoop/hdfs/name,/local2/hadoop/hdfs/name,/local3/hadoop/hdfs/name</value>
+    </property>
+ 
+    <property>
+      <name>dfs.namenode.handler.count</name>
+      <value>100</value>
+    </property>
+
+    <property>
+      <name>dfs.datanode.handler.count</name>
+      <!-- default: 3 -->
+      <value>10</value>
+    </property>
+
+    <property>
+      <name>dfs.datanode.max.xcievers</name>
+      <value>4096</value>
+      <description>Upped the number of xceivers to avoid errors </description>
+    </property>
+
+    <property>
+      <name>dfs.datanode.max.transfer.threads</name>
+      <value>4096</value>
+      <description>Upped the number of xceivers to avoid errors </description>
+    </property>
+
+    <property>
+      <name>dfs.datanode.balance.bandwidthPerSec</name>
+      <value>104857600</value> <!-- default: 1048576 (1MB) -->
+    </property>
+
+    <property>
+      <name>dfs.block.size</name>
+      <value>268435456</value>
+      <description>HDFS blocksize</description>
+    </property>
+
+    <property>
+      <name>dfs.datanode.socket.write.timeout</name>
+      <value>480000</value>	<!-- default: 480000 -->
+      <description>After discussion with Sebastien?? Now back to default</description>
+    </property>
+
+    <property>
+	<name>dfs.client.socket-timeout</name>
+      <value>86400000</value>	<!-- default: 60000 -->
+    </property>
+
+    <property>
+      <name>dfs.datanode.socket.timeout</name>
+      <value>210000</value>	<!-- default: 70000? -->
+      <description>inter-datanode socket timeout? No longer exists at all?</description>
+    </property>
+
+    <property>
+      <name>dfs.datanode.scan.period.hours</name>
+      <value>720</value>	<!-- 30*24 = one month -->
+      <description>HDFS block scanner</description>
+    </property>
+
+    <property>
+      <name>dfs.safemode.extension</name>
+      <value>0</value>
+      <description>Additional time to stay in safe mode after the threshold of reported datanodes has been reached</description>
+    </property>
+
+  <property>
+    <name>fs.checkpoint.dir</name>
+    <value>/data1/hadoop/hdfs/secondaryname,/data10/hadoop/hdfs/secondaryname,/data11/hadoop/hdfs/secondaryname,/data12/hadoop/hdfs/secondaryname,/data13/hadoop/hdfs/secondaryname,/data14/hadoop/hdfs/secondaryname,/data15/hadoop/hdfs/secondaryname,/data16/hadoop/hdfs/secondaryname,/data17/hadoop/hdfs/secondaryname,/data18/hadoop/hdfs/secondaryname,/data19/hadoop/hdfs/secondaryname,/data2/hadoop/hdfs/secondaryname,/data20/hadoop/hdfs/secondaryname,/data21/hadoop/hdfs/secondaryname,/data22/hadoop/hdfs/secondaryname,/data23/hadoop/hdfs/secondaryname,/data24/hadoop/hdfs/secondaryname,/data25/hadoop/hdfs/secondaryname,/data26/hadoop/hdfs/secondaryname,/data27/hadoop/hdfs/secondaryname,/data28/hadoop/hdfs/secondaryname,/data29/hadoop/hdfs/secondaryname,/data3/hadoop/hdfs/secondaryname,/data30/hadoop/hdfs/secondaryname,/data31/hadoop/hdfs/secondaryname,/data32/hadoop/hdfs/secondaryname,/data33/hadoop/hdfs/secondaryname,/data34/hadoop/hdfs/secondaryname,/data35/hadoop/hdfs/secondaryname,/data36/hadoop/hdfs/secondaryname,/data37/hadoop/hdfs/secondaryname,/data38/hadoop/hdfs/secondaryname,/data39/hadoop/hdfs/secondaryname,/data4/hadoop/hdfs/secondaryname,/data40/hadoop/hdfs/secondaryname,/data41/hadoop/hdfs/secondaryname,/data42/hadoop/hdfs/secondaryname,/data43/hadoop/hdfs/secondaryname,/data44/hadoop/hdfs/secondaryname,/data45/hadoop/hdfs/secondaryname,/data46/hadoop/hdfs/secondaryname,/data47/hadoop/hdfs/secondaryname,/data48/hadoop/hdfs/secondaryname,/data5/hadoop/hdfs/secondaryname,/data6/hadoop/hdfs/secondaryname,/data7/hadoop/hdfs/secondaryname,/data8/hadoop/hdfs/secondaryname,/data9/hadoop/hdfs/secondaryname,/local1/hadoop/hdfs/secondaryname,/local2/hadoop/hdfs/secondaryname,/local3/hadoop/hdfs/secondaryname</value>
+    <final>true</final>
+  </property>
+
+  <property>
+    <name>dfs.hosts</name>
+    <value>/etc/hadoop/conf/dfs.includes</value>
+    <final>true</final>
+  </property>
+  
+  <property>
+    <name>dfs.hosts.exclude</name>
+    <value>/etc/hadoop/conf/excludes</value>
+    <final>true</final>
+  </property>
+  
+  <property> 
+    <name>dfs.replication</name>
+    <value>3</value>
+  </property>
+
+  <!-- Reserve 20G freespace -->
+  <property>
+    <name>dfs.datanode.du.reserved</name>
+    <value>21474836480</value>
+  </property>
+
+  <property>
+    <name>dfs.datanode.fsdataset.volume.choosing.policy</name>
+    <value>org.apache.hadoop.hdfs.server.datanode.fsdataset.AvailableSpaceVolumeChoosingPolicy</value>
+  </property>
+
+  <property>
+    <name>dfs.datanode.available-space-volume-choosing-policy.balanced-space-preference-fraction</name>
+    <value>1.0</value>
+  </property>
+
+  <property>
+    <name>dfs.datanode.failed.volumes.tolerated</name>
+    <value>50</value>
+    <final>true</final>
+  </property>
+
+
+    <property>
+	<name>dfs.ha.namenodes.analytix</name>
+	<value>ithdp1101.cern.ch,itrac51111.cern.ch</value>
+    </property>
+
+        <property>
+	<name>dfs.namenode.rpc-address.analytix.ithdp1101.cern.ch</name>
+	<value>ithdp1101.cern.ch:9000</value>
+    </property>
+        <property>
+	<name>dfs.namenode.rpc-address.analytix.itrac51111.cern.ch</name>
+	<value>itrac51111.cern.ch:9000</value>
+    </property>
+    
+    <property>
+	<name>dfs.namenode.shared.edits.dir</name>
+	<value>qjournal://ithdp1101.cern.ch:8485;itrac51111.cern.ch:8485;p05151113588139.cern.ch:8485/analytix</value>
+    </property>
+
+    <property>
+	<name>dfs.journalnode.keytab.file</name>
+	<value>/etc/hadoop/conf/hdfs.keytab</value>
+    </property>
+
+    <property>
+	<name>dfs.journalnode.kerberos.principal</name>
+	<value>hdfs/_HOST@CERN.CH</value>
+    </property>
+
+    <property>
+	<name>dfs.journalnode.kerberos.internal.spnego.principal</name>
+	<value>HTTP/_HOST@CERN.CH</value>
+    </property>
+
+    <property>
+	<name>dfs.ha.automatic-failover.enabled</name>
+	<value>true</value>
+    </property>
+
+    <property>
+	<name>dfs.client.failover.proxy.provider.analytix</name>
+	<value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+    </property>
+
+    <property>
+	<name>dfs.ha.fencing.methods</name>
+	<value>shell(ps -ef|grep proc_namenode|grep -v grep)</value>
+    </property>
+
+    <property>
+	<name>dfs.journalnode.edits.dir</name>
+	<value>/journal</value>
+    </property>
+
+    <property>
+	<name>dfs.namenode.num.extra.edits.retained</name>
+	<value>200000</value>
+    </property>
+
+    <property>
+	<name>dfs.namenode.num.extra.edits.retained</name>
+	<value>2000</value>
+    </property>
+
+
+<property> 
+<name>dfs.support.broken.append</name> 
+<value>true</value> 
+</property>
+
+  <property>
+    <name>dfs.support.append</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>dfs.datanode.balance.max.concurrent.moves</name>
+    <value>25</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.replication.max-streams</name>
+    <!-- default: 2, Cloudera "decommission host" suggests 100 -->
+    <value>50</value>
+  </property>
+
+  <property>
+    <name>dfs.namenode.replication.max-streams-hard-limit</name>
+    <!-- default: 4 -->
+    <value>100</value>
+  </property>
+
+  <property>
+	<name>dfs.namenode.replication.work.multiplier.per.iteration</name>
+	<!-- default 2, Cloudera "decommission host" suggests 10 -->
+	<value>10</value>
+  </property>
+
+    <property>
+	<name>dfs.image.transfer.timeout</name>
+	<value>600000</value>     <!-- default: 70000? set to 10 minutes for bigger images!-->
+	<description>secondary namenode image transfer timeout</description>
+    </property>
+
+
+
+
+    <!-- shortcut reads as per cloudera doc -->
+    <property>
+	<name>dfs.client.read.shortcircuit</name>
+	<value>true</value>
+    </property>
+
+    <property>
+	<name>dfs.client.read.shortcircuit.streams.cache.size</name>
+	<value>1000</value>
+    </property>
+
+    <property>
+	<name>dfs.client.read.shortcircuit.streams.cache.expiry.ms</name>
+	<value>120000</value>
+    </property>
+
+    <property>
+	<name>dfs.client.file-block-storage-locations.timeout.millis</name>
+	<value>30000</value>
+    </property>
+
+    <property>
+	<name>dfs.domain.socket.path</name>
+	<value>/var/run/hadoop-hdfs/dn._PORT</value>
+    </property>
+
+    <property>
+	<name>dfs.datanode.hdfs-blocks-metadata.enabled</name>
+	<value>true</value>
+    </property>
+
+
+  <!-- security -->
+    <!-- General HDFS security config -->
+    <property>
+      <name>dfs.block.access.token.enable</name>
+      <value>true</value>	<!-- true = security on, false = off -->
+    </property>
+
+    <property>
+ 	<name>dfs.permissions</name>
+	<value>true</value>
+    </property>
+
+    <property>
+ 	<name>dfs.permissions.enabled</name>
+	<value>true</value>
+    </property>
+
+    <property>
+ 	<name>dfs.permissions.supergroup</name>
+	<value>hdfs</value>
+    </property>
+
+    <property>
+ 	<name>dfs.namenode.acls.enabled</name>
+	<value>true</value>
+    </property>
+
+    <property>
+ 	<name>dfs.cluster.adminstrators</name>
+	<value>hdfs</value>
+    </property>
+
+    <!-- NameNode security config -->
+    <property>
+      <name>dfs.namenode.keytab.file</name>
+      <value>/etc/hadoop/conf/hdfs.keytab</value> <!-- path to the HDFS keytab -->
+    </property>
+    <property>
+      <name>dfs.namenode.kerberos.principal</name>
+      <value>hdfs/_HOST@CERN.CH</value>
+    </property>
+    <property>
+      <name>dfs.namenode.kerberos.internal.spnego.principal</name>
+      <value>HTTP/_HOST@CERN.CH</value>
+    </property>
+
+
+
+
+    <!-- DataNode security config -->
+    <property>
+      <name>dfs.datanode.data.dir.perm</name>
+      <value>700</value> 
+    </property>
+    <property>
+      <name>dfs.datanode.address</name>
+      <value>0.0.0.0:1004</value>
+    </property>
+    <property>
+      <name>dfs.datanode.http.address</name>
+      <value>0.0.0.0:1006</value>
+    </property>
+    <property>
+      <name>dfs.datanode.keytab.file</name>
+      <value>/etc/hadoop/conf/hdfs.keytab</value> <!-- path to the HDFS keytab -->
+    </property>
+    <property>
+      <name>dfs.datanode.kerberos.principal</name>
+      <value>hdfs/_HOST@CERN.CH</value>
+    </property>
+  
+    <!-- secure WebHDFS -->
+    <property>
+      <name>dfs.webhdfs.enabled</name>
+      <value>true</value>
+    </property>
+    <property>
+      <name>dfs.web.authentication.kerberos.principal</name>
+      <value>HTTP/_HOST@CERN.CH</value>
+    </property>
+
+    <property>
+      <name>dfs.web.authentication.kerberos.keytab</name>
+      <value>/etc/hadoop/conf/hdfs.keytab</value> <!-- path to the HTTP keytab -->
+    </property>
+
+    <property>
+	<name>dfs.nameservices</name>
+	<value>analytix,lxhadoop,hadalytic,hadoopqa,test,nxcals</value>
+    </property>
+
+    <property>
+	<name>dfs.internal.nameservices</name>
+	<value>analytix</value>
+    </property>
+
+    <property>
+	<name>dfs.ha.namenodes.analytix</name>
+	<value>ithdp1101.cern.ch,itrac51111.cern.ch</value>
+    </property>
+	<property>
+	    <name>dfs.namenode.rpc-address.analytix.ithdp1101.cern.ch</name>
+	    <value>ithdp1101.cern.ch:9000</value>
+	</property>
+	<property>
+	    <name>dfs.namenode.rpc-address.analytix.itrac51111.cern.ch</name>
+	    <value>itrac51111.cern.ch:9000</value>
+	</property>
+    
+	<property>
+	    <name>dfs.client.failover.proxy.provider.analytix</name>
+	    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+	</property>
+
+    <property>
+	<name>dfs.ha.namenodes.lxhadoop</name>
+	<value>ithdp1201.cern.ch,itrac51107.cern.ch</value>
+    </property>
+	<property>
+	    <name>dfs.namenode.rpc-address.lxhadoop.ithdp1201.cern.ch</name>
+	    <value>ithdp1201.cern.ch:9000</value>
+	</property>
+	<property>
+	    <name>dfs.namenode.rpc-address.lxhadoop.itrac51107.cern.ch</name>
+	    <value>itrac51107.cern.ch:9000</value>
+	</property>
+    
+	<property>
+	    <name>dfs.client.failover.proxy.provider.lxhadoop</name>
+	    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+	</property>
+
+    <property>
+	<name>dfs.ha.namenodes.hadalytic</name>
+	<value>p01001532067275.cern.ch</value>
+    </property>
+	<property>
+	    <name>dfs.namenode.rpc-address.hadalytic.p01001532067275.cern.ch</name>
+	    <value>p01001532067275.cern.ch:8020</value>
+	</property>
+    
+	<property>
+	    <name>dfs.client.failover.proxy.provider.hadalytic</name>
+	    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+	</property>
+
+    <property>
+	<name>dfs.ha.namenodes.hadoopqa</name>
+	<value>itrac51115.cern.ch,itrac51103.cern.ch</value>
+    </property>
+	<property>
+	    <name>dfs.namenode.rpc-address.hadoopqa.itrac51115.cern.ch</name>
+	    <value>itrac51115.cern.ch:8020</value>
+	</property>
+	<property>
+	    <name>dfs.namenode.rpc-address.hadoopqa.itrac51103.cern.ch</name>
+	    <value>itrac51103.cern.ch:8020</value>
+	</property>
+    
+	<property>
+	    <name>dfs.client.failover.proxy.provider.hadoopqa</name>
+	    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+	</property>
+
+    <property>
+	<name>dfs.ha.namenodes.test</name>
+	<value>rtbhadoop3.cern.ch</value>
+    </property>
+	<property>
+	    <name>dfs.namenode.rpc-address.test.rtbhadoop3.cern.ch</name>
+	    <value>rtbhadoop3.cern.ch:8020</value>
+	</property>
+    
+	<property>
+	    <name>dfs.client.failover.proxy.provider.test</name>
+	    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+	</property>
+
+    <property>
+	<name>dfs.ha.namenodes.nxcals</name>
+	<value>ithdp1001.cern.ch,ithdp1005.cern.ch</value>
+    </property>
+	<property>
+	    <name>dfs.namenode.rpc-address.nxcals.ithdp1001.cern.ch</name>
+	    <value>ithdp1001.cern.ch:8020</value>
+	</property>
+	<property>
+	    <name>dfs.namenode.rpc-address.nxcals.ithdp1005.cern.ch</name>
+	    <value>ithdp1005.cern.ch:8020</value>
+	</property>
+    
+	<property>
+	    <name>dfs.client.failover.proxy.provider.nxcals</name>
+	    <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+	</property>
+
+
+
+</configuration>
