@@ -82,9 +82,9 @@ COPY Unconfirmed.zip /usr/local/sqoop/lib/ojdbc6.jar
 RUN chmod 755 /usr/local/sqoop/lib/ojdbc6.jar
 
 # Oracle
-RUN mkdir -p /opt/oracle/instantclient_21_1
+RUN mkdir -p /opt/oracle/
 COPY instantclient-basiclite-linux.x64-21.1.0.0.0.zip .
-RUN unzip instantclient-basiclite-linux.x64-21.1.0.0.0.zip -d /opt/oracle/instantclient_21_1/
+RUN unzip instantclient-basiclite-linux.x64-21.1.0.0.0.zip -d /opt/oracle/
 RUN echo /opt/oracle/instantclient_21_1 > /etc/ld.so.conf.d/oracle-instantclient.conf
 
 RUN python3 -m pip install --upgrade pip
