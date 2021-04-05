@@ -1,34 +1,33 @@
-FROM centos:7
+FROM centos:8
 
 LABEL maintainer="Ilija Vukotic <ivukotic@cern.ch>"
 
-RUN yum install -y epel-release.noarch
-RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
-RUN yum -y update 
+RUN dnf update -y
+
+RUN  dnf list installed
+
+RUN dnf install -y epel-release.noarch
+
+RUN dnf update -y
 
 # Install dependencies
-RUN yum install -y \
+RUN dnf install -y \
     httpd \
     git \
-    curl \
+    # curl \
     wget \
     rsync \
     zip \
     unzip \
     vim \
     libaio \
-    python-pip \
-    python-devel \
-    python36u \
-    python36u-pip \
-    python36u-devel \
-    ntp \
+    python3 \
+    # ntp \
     krb5-workstation \
-    mod_auth_kerb \
+    # mod_auth_kerb \
     mod_ssl \
-    mod_wsgi \
+    # mod_wsgi \
     openssl-devel \
-    java-1.7.0-openjdk-devel \
     java-1.8.0-openjdk-devel 
 
 #     mysql-connector-java
@@ -43,10 +42,10 @@ RUN yum install -y \
 #   openjdk-8-jdk \
 #   openjdk-8-jre-headless \
 
-ENV JAVA_HOME /etc/alternatives/java_sdk_1.7.0_openjdk/jre/
+ENV JAVA_HOME /etc/alternatives/java_sdk_1.8.0_openjdk/jre/
 
 # # es-hadoop - for all the modules (pig, mr, spark)
-ENV EH_VERSION 7.6.2
+ENV EH_VERSION 7.12.0
 RUN curl -LO https://artifacts.elastic.co/downloads/elasticsearch-hadoop/elasticsearch-hadoop-$EH_VERSION.zip
 RUN unzip elasticsearch-hadoop-$EH_VERSION.zip && \
     rm elasticsearch-hadoop-$EH_VERSION.zip
@@ -55,13 +54,13 @@ RUN mkdir /elasticsearch-hadoop && \
     ln -s /elasticsearch-hadoop-$EH_VERSION/dist/elasticsearch-hadoop-pig-$EH_VERSION.jar /elasticsearch-hadoop/elasticsearch-hadoop-pig.jar && \
     ln -s /elasticsearch-hadoop-$EH_VERSION/dist/elasticsearch-spark-20_2.11-$EH_VERSION.jar /elasticsearch-hadoop/elasticsearch-spark.jar
 
-# hdfs
-RUN wget http://archive.cloudera.com/cdh5/one-click-install/redhat/7/x86_64/cloudera-cdh-5-0.x86_64.rpm
-RUN yum install -y localinstall cloudera-cdh-5-0.x86_64.rpm
+# hdfs - now needs subsription
+# RUN wget http://archive.cloudera.com/cdh5/one-click-install/redhat/7/x86_64/cloudera-cdh-5-0.x86_64.rpm
+# RUN yum install -y localinstall cloudera-cdh-5-0.x86_64.rpm
 
-RUN yum install -y pig \
-    hbase \
-    flume-ng 
+# RUN yum install -y pig \
+#     hbase \
+#     flume-ng 
 
 # # elephant-bird
 # ENV EB_VERSION 4.17
@@ -82,26 +81,14 @@ COPY configs/core-site.xml configs/hdfs-site.xml configs/mapred-site.xml configs
 COPY Unconfirmed.zip /usr/local/sqoop/lib/ojdbc6.jar
 RUN chmod 755 /usr/local/sqoop/lib/ojdbc6.jar
 
-COPY Unconfirmed.rpm .
-RUN yum install -y Unconfirmed.rpm
+# Oracle
+RUN mkdir -p /opt/oracle/instantclient_21_1
+COPY instantclient-basiclite-linux.x64-21.1.0.0.0.zip .
+RUN unzip instantclient-basiclite-linux.x64-21.1.0.0.0.zip -d /opt/oracle/instantclient_21_1/
+RUN echo /opt/oracle/instantclient_21_1 > /etc/ld.so.conf.d/oracle-instantclient.conf
 
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir \
-    h5py \
-    tables \
-    numpy \
-    pandas \
-    scipy \
-    sklearn \
-    elasticsearch \
-    cx_Oracle \
-    requests \
-    mysql-connector \
-    stomp.py
-
-# python3
-RUN pip3.6 install --upgrade pip
-RUN pip3.6 install --no-cache-dir \
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --no-cache-dir \
     h5py \
     tables \
     numpy \
